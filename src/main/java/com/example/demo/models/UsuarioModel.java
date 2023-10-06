@@ -15,6 +15,7 @@ public class UsuarioModel {
 	private String apellido;
 	private String dni;
 	private String contrasena;
+	
 	public Long getId() {
 		return id;
 	}
