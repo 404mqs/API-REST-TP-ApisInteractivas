@@ -1,99 +1,84 @@
 package com.example.demo.models;
 
+import jakarta.*;
+
 import jakarta.persistence.*;
 
-import org.springframework.stereotype.Component;
-
 @Entity
-@Table(name = "Reclamo")
-@Component
-public class ReclamoModel {
+@Table(name = "reclamo")
+public class Reclamo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idReclamo")
 	private int idReclamo;
-	
-	private Long usuario;
-	private Long edificio;
-	private Long departamento;
-	private Long espacioComun;
-	
+	private String usuario;
+	private String edificio;
+	private String departamento;
+	private String espacioComun;
 	private String descripcion;
 	private String foto;
 	private String estadoReclamo;
+	private String respuesta;
 	
-	private Long respuesta;
-
 	public int getIdReclamo() {
 		return idReclamo;
 	}
-
+	
 	public void setIdReclamo(int idReclamo) {
 		this.idReclamo = idReclamo;
 	}
-
-	public Long getUsuario() {
+	public String getUsuario() {
 		return usuario;
 	}
-
-	public void setUsuario(Long usuario) {
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-
-	public Long getEdificio() {
+	public String getEdificio() {
 		return edificio;
 	}
-
-	public void setEdificio(Long edificio) {
+	public void setEdificio(String edificio) {
 		this.edificio = edificio;
 	}
-
-	public Long getDepartamento() {
+	public String getDepartamento() {
 		return departamento;
 	}
-
-	public void setDepartamento(Long departamento) {
+	public void setDepartamento(String departamento) {
 		this.departamento = departamento;
 	}
-
-	public Long getEspacioComun() {
+	public String getEspacioComun() {
 		return espacioComun;
 	}
-
-	public void setEspacioComun(Long espacioComun) {
+	public void setEspacioComun(String espacioComun) {
 		this.espacioComun = espacioComun;
 	}
-
 	public String getDescripcion() {
 		return descripcion;
 	}
-
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
 	public String getFoto() {
 		return foto;
 	}
-
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-
 	public String getEstadoReclamo() {
 		return estadoReclamo;
 	}
-
 	public void setEstadoReclamo(String estadoReclamo) {
 		this.estadoReclamo = estadoReclamo;
 	}
-
-	public Long getRespuesta() {
+	public String getRespuesta() {
 		return respuesta;
 	}
-
-	public void setRespuesta(Long respuesta) {
+	public void setRespuesta(String respuesta) {
 		this.respuesta = respuesta;
 	}
+	
+	
+	
+	
 	
 }

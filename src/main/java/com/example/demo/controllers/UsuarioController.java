@@ -3,7 +3,7 @@ package com.example.demo.controllers;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import com.example.demo.models.UsuarioModel;
+import com.example.demo.models.Usuario;
 import com.example.demo.services.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +16,17 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @GetMapping()
-    public ArrayList<UsuarioModel> obtenerUsuarios(){
+    public ArrayList<Usuario> obtenerUsuarios(){
         return usuarioService.obtenerUsuarios();
     }
 
     @PostMapping()
-    public UsuarioModel guardarUsuario(@RequestBody UsuarioModel usuario){
+    public Usuario guardarUsuario(@RequestBody Usuario usuario){
         return this.usuarioService.guardarUsuario(usuario);
     }
 
     @GetMapping( path = "/{id}")
-    public Optional<UsuarioModel> obtenerUsuarioPorId(@PathVariable("id") Long id) {
+    public Optional<Usuario> obtenerUsuarioPorId(@PathVariable("id") Long id) {
         return this.usuarioService.obtenerPorId(id);
     }
 

@@ -4,30 +4,34 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import com.example.demo.models.Edificio;
+import com.example.demo.models.Reclamo;
+import com.example.demo.models.RespuestaReclamo;
 import com.example.demo.services.EdificioService;
+import com.example.demo.services.ReclamoService;
+import com.example.demo.services.RespuestaReclamoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/edificio")
-public class EdificioController {
+@RequestMapping("/respuestareclamo")
+public class RespuestaReclamoController {
     @Autowired
-    EdificioService edificioService;
+    RespuestaReclamoService respuestareclamoService;
 
     @GetMapping()
-    public ArrayList<Edificio> obtenerEdificios(){
-        return edificioService.obtenerEdificios();
+    public ArrayList<RespuestaReclamo> obtenerRespuestas(){
+        return respuestareclamoService.obtenerRespuestaReclamos();
     }
 
     @PostMapping()
-    public Edificio guardarEdificio(@RequestBody Edificio edificio){
-        return this.edificioService.guardarEdificio(edificio);
+    public RespuestaReclamo guardarRespuestaReclamo(@RequestBody RespuestaReclamo respuestaReclamo){
+        return this.respuestareclamoService.guardarRespuesta(respuestaReclamo);
     }
 
     @GetMapping( path = "/{id}")
-    public Optional<Edificio> obtenerUsuarioPorId(@PathVariable("id") Long id) {
-        return this.edificioService.obtenerPorId(id);
+    public Optional<RespuestaReclamo> obtenerRespuestaPorId(@PathVariable("id") Long id) {
+        return this.respuestareclamoService.obtenerPorId(id);
     }
 
     /*
@@ -38,7 +42,7 @@ public class EdificioController {
 
     @DeleteMapping( path = "/{id}")
     public String eliminarPorId(@PathVariable("id") Long id){
-        boolean ok = this.edificioService.eliminarEdificio(id);
+        boolean ok = this.respuestareclamoService.eliminarReclamo(id);
         if (ok){
             return "Se eliminó el usuario con id " + id;
         }else{

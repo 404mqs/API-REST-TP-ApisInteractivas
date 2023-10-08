@@ -3,31 +3,31 @@ package com.example.demo.controllers;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import com.example.demo.models.Edificio;
-import com.example.demo.services.EdificioService;
+import com.example.demo.models.EspacioComun;
+import com.example.demo.services.EspacioComunService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/edificio")
-public class EdificioController {
+@RequestMapping("/espaciocomun")
+public class EspacioComunController {
     @Autowired
-    EdificioService edificioService;
+    EspacioComunService espacioComunService;
 
     @GetMapping()
-    public ArrayList<Edificio> obtenerEdificios(){
-        return edificioService.obtenerEdificios();
+    public ArrayList<EspacioComun> obtenerEspaciosComunes(){
+        return espacioComunService.obtenerEdificios();
     }
 
     @PostMapping()
-    public Edificio guardarEdificio(@RequestBody Edificio edificio){
-        return this.edificioService.guardarEdificio(edificio);
+    public EspacioComun guardarEspacioComun(@RequestBody EspacioComun espacioComun){
+        return this.espacioComunService.guardarEdificio(espacioComun);
     }
 
-    @GetMapping( path = "/{id}")
-    public Optional<Edificio> obtenerUsuarioPorId(@PathVariable("id") Long id) {
-        return this.edificioService.obtenerPorId(id);
+    @GetMapping(path = "/{id}")
+    public Optional<EspacioComun> obtenerEspacioPorId(@PathVariable("id") Long id) {
+        return this.espacioComunService.obtenerPorId(id);
     }
 
     /*
@@ -38,7 +38,7 @@ public class EdificioController {
 
     @DeleteMapping( path = "/{id}")
     public String eliminarPorId(@PathVariable("id") Long id){
-        boolean ok = this.edificioService.eliminarEdificio(id);
+        boolean ok = this.espacioComunService.eliminarEspacioComun(id);
         if (ok){
             return "Se eliminó el usuario con id " + id;
         }else{

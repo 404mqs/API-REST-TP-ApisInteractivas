@@ -3,7 +3,7 @@ package com.example.demo.services;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import com.example.demo.models.UsuarioModel;
+import com.example.demo.models.Usuario;
 import com.example.demo.repositories.UsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +14,15 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
     
-    public ArrayList<UsuarioModel> obtenerUsuarios(){
-        return (ArrayList<UsuarioModel>) usuarioRepository.findAll();
+    public ArrayList<Usuario> obtenerUsuarios(){
+        return (ArrayList<Usuario>) usuarioRepository.findAll();
     }
 
-    public UsuarioModel guardarUsuario(UsuarioModel usuario){
+    public Usuario guardarUsuario(Usuario usuario){
         return usuarioRepository.save(usuario);
     }
 
-    public Optional<UsuarioModel> obtenerPorId(Long id){
+    public Optional<Usuario> obtenerPorId(Long id){
         return usuarioRepository.findById(id);
     }
 

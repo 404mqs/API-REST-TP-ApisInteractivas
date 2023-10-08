@@ -3,31 +3,33 @@ package com.example.demo.controllers;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import com.example.demo.models.Edificio;
-import com.example.demo.services.EdificioService;
+import com.example.demo.models.Departamento;
+import com.example.demo.models.Usuario;
+import com.example.demo.services.DepartamentoService;
+import com.example.demo.services.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/edificio")
-public class EdificioController {
+@RequestMapping("/departamento")
+public class DepartamentoController {
     @Autowired
-    EdificioService edificioService;
+    DepartamentoService deptoService;
 
     @GetMapping()
-    public ArrayList<Edificio> obtenerEdificios(){
-        return edificioService.obtenerEdificios();
+    public ArrayList<Departamento> obtenerUsuarios(){
+        return deptoService.obtenerDeptos();
     }
 
     @PostMapping()
-    public Edificio guardarEdificio(@RequestBody Edificio edificio){
-        return this.edificioService.guardarEdificio(edificio);
+    public Departamento guardarDepto(@RequestBody Departamento depto){
+        return this.deptoService.guardarDepto(depto);
     }
 
     @GetMapping( path = "/{id}")
-    public Optional<Edificio> obtenerUsuarioPorId(@PathVariable("id") Long id) {
-        return this.edificioService.obtenerPorId(id);
+    public Optional<Departamento> obtenerDeptoPorId(@PathVariable("id") Long id) {
+        return this.deptoService.obtenerPorId(id);
     }
 
     /*
@@ -38,7 +40,7 @@ public class EdificioController {
 
     @DeleteMapping( path = "/{id}")
     public String eliminarPorId(@PathVariable("id") Long id){
-        boolean ok = this.edificioService.eliminarEdificio(id);
+        boolean ok = this.deptoService.eliminarDepto(id);
         if (ok){
             return "Se eliminó el usuario con id " + id;
         }else{
